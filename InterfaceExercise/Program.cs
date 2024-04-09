@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Reflection;
+using System.Runtime.CompilerServices;
 
 namespace InterfaceExercise
 {
@@ -6,35 +10,55 @@ namespace InterfaceExercise
     {
         static void Main(string[] args)
         {
-            //TODO Be sure to follow BEST PRACTICES when creating classes and interfaces
 
-            //Create 2 Interfaces called IVehicle & ICompany
+            Car car = new Car()
+            {   Model = "Toyota",
+                IsShort = true,
+                Wheels  = true,
+                Seats = true,
+                HasCupHolders = true,
+                HasGasPedal  = true,
+                Logo = true,
+                MissionStatement = true,
+            };
+            SUV suv = new SUV()
+            {
+               Model = "Suburban",
+               Has8Seatbelts = true,
+               Wheels = true,
+               Seats  = true,
+               HasCupHolders = true,
+               HasGasPedal = true,
+               Logo = true,
+               MissionStatement = true,
+            };
+            Truck truck = new Truck()
+            {
+                Model = "Mack",
+                IsLoud  = true,
+                Seats  = true,
+                HasCupHolders = true,
+                HasGasPedal  = true,
+                Logo  = true,
+                MissionStatement  = true,
+            };
 
-            //Create 3 classes called Car , Truck , & SUV
+            List<IVehicle> vehicles = new List<IVehicle>();
 
-            //In your IVehicle:
+            vehicles.Add(car);
+            vehicles.Add(suv);
+            vehicles.Add(truck);
+
+            foreach(var item in vehicles)
+            {   Console.WriteLine($"Vehical Model:{item.Model}");
+                Console.WriteLine($"GasPetal:{item.HasGasPedal}");
+                Console.WriteLine($"Cup Holders:{item.HasCupHolders}");
+                Console.WriteLine($"Seats:{item.Seats}");
+                Console.WriteLine();
+            }
+                
             
-                /* Create 4 members that Car, Truck, & SUV all have in common.
-                 * Example: public int NumberOfWheels { get; set; }
-                 */
             
-
-            //In ICompany: 
-            
-                /* Create 2 members that are specific to each every company
-                 * regardless of vehicle type.
-                 * Example: public string Logo { get; set; }
-                 */
-
-            //In each of your Car, Truck, and SUV classes
-
-                /* Create 2 members that are specific to each class
-                 * Example for Car: public bool HasTrunk { get; set; }
-                 * Example for SUV: public int NumberOfSeats { get; set; }
-                 *
-                 * Then, Set each class to inherit from both IVehicle and ICompany and implement their members.
-                 */
-
             //Now, create objects of your 3 classes and give their members values.
             //Creatively display and organize their values
             
